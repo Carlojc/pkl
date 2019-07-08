@@ -3,12 +3,12 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Asset Hardware</title>
+  <title>Jenis Software</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="../assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="../assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
   <style>
     /* label color */
@@ -60,7 +60,7 @@
 <div class="navbar-fixed">
 <nav class="z-depth-2" role="navigation" style="background-color: #003366">
   <div class="nav-wrapper">
-    <img src="logo.jpg" style="height: 65px;">
+    <img src="../assets/img/logo.jpg" style="height: 65px;">
     <a id="logo-container" href="#" class="brand-logo" style="font-weight: bold;color: #f8a55d; margin-left: 40px;">IT Service Catalogues</a>
     
     <ul class="right hide-on-med-and-down" style="margin-right: 40px;">
@@ -69,7 +69,7 @@
     <ul id="nav-mobile" class="sidenav sidenav-fixed" style="top: 65px; width: 250px; z-index: -1; background-color: #004b66;">
       <li>
         <div style="margin-left: 25px; margin-top: 20px; display: flex;">
-          <div style="width: 50px; margin-right: 10px; margin-top: 10px;"><img class="circle" style="width: 50px; height: 50px;" src="background2.jpg"></div>
+          <div style="width: 50px; margin-right: 10px; margin-top: 10px;"><img class="circle" style="width: 50px; height: 50px;" src="../assets/img/background2.jpg"></div>
           <div style="width: 200px;" style="margin-top: -10px;">
             <div style="height: 20px; word-wrap: break-word;"><b>John Doe</b></div>
             <div style="height: 0px;">Administrator</div>
@@ -121,7 +121,7 @@
 <main>
   <div class="container" style="margin-top: 20px;">
       <div class="row">
-        <div class="col s12 grey-text text-darken-2"><b style="font-size: 37px">Asset Hardware</b>
+        <div class="col s12 grey-text text-darken-2"><b style="font-size: 37px">Jenis Software</b>
           <br>
         Last Update : 20 April 2019 08:08:08
         </div>
@@ -149,42 +149,21 @@
                     <thead>
                       <tr>
                           <th>No</th>
-                          <th>Nama</th>
-                          <th>Owner</th>
-                          <th>Jenis</th>
-                          <th>Kondisi</th>
-                          <th>Penyedia</th>
-                          <th>Fungsi</th>
+                          <th>Nama Software</th>
+                          <th>Lisensi</th>
+                          <th>Aksi</th>
                       </tr>
                     </thead>
             
                     <tbody>
                       <tr>
-                        <td>1</td>
-                        <td>Laptop</td>
-                        <td>Ihza</td>
-                        <td>Besar</td>
-                        <td>Normal</td>
-                        <td>Kantor</td>
-                        <td>Edit Database</td>
+                      <td>1</td>
                       </tr>
                       <tr>
                         <td>2</td>
-                        <td>Proyektor</td>
-                        <td>Andre</td>
-                        <td>Kecil</td>
-                        <td>Normal</td>
-                        <td>Pribadi</td>
-                        <td>Presentasi lantai 5</td>
                       </tr>
                       <tr>
                         <td>3</td>
-                        <td>Komputer</td>
-                        <td>Asep</td>
-                        <td>Sedang</td>
-                        <td>Normal</td>
-                        <td>Kantor</td>
-                        <td>Pekerjaan kantor</td>
                       </tr>
                     </tbody>
                   </table>
@@ -202,8 +181,8 @@
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
+  <script src="../assets/js/materialize.js"></script>
+  <script src="../assets/js/init.js"></script>
 
   </body>
 </html>

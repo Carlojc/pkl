@@ -7,13 +7,13 @@
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="../assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="../assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <div class="navbar-fixed">
 <nav class="z-depth-2" role="navigation" style="background-color: #003366">
   <div class="nav-wrapper">
-    <img src="logo.jpg" style="height: 65px;">
+    <img src="../assets/img/logo.jpg" style="height: 65px;">
     <a id="logo-container" href="#" class="brand-logo" style="font-weight: bold;color: #f8a55d; margin-left: 40px;">IT Service Catalogues</a>
     
     <ul class="right hide-on-med-and-down" style="margin-right: 40px;">
@@ -22,7 +22,7 @@
     <ul id="nav-mobile" class="sidenav sidenav-fixed" style="top: 65px; width: 250px; z-index: -1; background-color:#004b66;">
       <li>
         <div style="margin-left: 25px; margin-top: 20px; display: flex;">
-          <div style="width: 50px; margin-right: 10px; margin-top: 10px;"><img class="circle" style="width: 50px; height: 50px;" src="background2.jpg"></div>
+          <div style="width: 50px; margin-right: 10px; margin-top: 10px;"><img class="circle" style="width: 50px; height: 50px;" src="../assets/img/background2.jpg"></div>
           <div style="width: 200px;" style="margin-top: -10px;">
             <div style="height: 20px; word-wrap: break-word;"><b>John Doe</b></div>
             <div style="height: 0px;">Administrator</div>
@@ -116,8 +116,8 @@
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
+  <script src="../assets/js/materialize.js"></script>
+  <script src="../assets/js/init.js"></script>
 
   </body>
 </html>

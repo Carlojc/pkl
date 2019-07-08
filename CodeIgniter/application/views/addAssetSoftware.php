@@ -3,12 +3,12 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Add AssetHardware</title>
+  <title>Add AssetSoftware</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="../assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="../assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <style>
       .buttonWakwaw {
       background-color: transparent;
@@ -25,7 +25,7 @@
 <div class="navbar-fixed">
 <nav class="z-depth-2" role="navigation" style="background-color: #003366">
   <div class="nav-wrapper">
-    <img src="logo.jpg" style="height: 65px;">
+    <img src="../assets/img/logo.jpg" style="height: 65px;">
     <a id="logo-container" href="#" class="brand-logo" style="font-weight: bold;color: #f8a55d; margin-left: 40px;">IT Service Catalogues</a>
     
     <ul class="right hide-on-med-and-down" style="margin-right: 40px;">
@@ -34,7 +34,7 @@
     <ul id="nav-mobile" class="sidenav sidenav-fixed" style="top: 65px; width: 250px; z-index: -1; background-color: #004b66;">
       <li>
         <div style="margin-left: 25px; margin-top: 20px; display: flex;">
-          <div style="width: 50px; margin-right: 10px; margin-top: 10px;"><img class="circle" style="width: 50px; height: 50px;" src="background2.jpg"></div>
+          <div style="width: 50px; margin-right: 10px; margin-top: 10px;"><img class="circle" style="width: 50px; height: 50px;" src="../assets/img/background2.jpg"></div>
           <div style="width: 200px;" style="margin-top: -10px;">
             <div style="height: 20px; word-wrap: break-word;"><b>John Doe</b></div>
             <div style="height: 0px;">Administrator</div>
@@ -86,7 +86,7 @@
 <main>
   <div class="container" style="margin-top: 20px;">
       <div class="row">
-        <div class="col s12 grey-text text-darken-2"><b style="font-size: 37px">Asset Hardware</b>
+        <div class="col s12 grey-text text-darken-2"><b style="font-size: 37px">Asset Software</b>
           <br>
         Last Update : 20 April 2019 08:08:08
         </div>
@@ -100,17 +100,8 @@
                     <div class="col s6">
                     <div class="row">
                       <div class="input-field col s12">
-                        <input placeholder="Masukan Nama Hardware" id="first_name" type="text" class="validate">
-                        <label for="first_name">Nama Hardware</label>
-                      </div>
-                      <div class="input-field col s12">
-                          <select>
-                              <option value="" disabled selected>Owner Hardware</option>
-                              <option value="1">Option 1</option>
-                              <option value="2">Option 2</option>
-                              <option value="3">Option 3</option>
-                          </select>
-                          <label>Owner Hardware</label>
+                        <input placeholder="Masukan Nama Software" id="first_name" type="text" class="validate">
+                        <label for="first_name">Nama Software</label>
                       </div>
                       <div class="input-field col s12">
                           <select>
@@ -119,7 +110,16 @@
                               <option value="2">Option 2</option>
                               <option value="3">Option 3</option>
                           </select>
-                          <label>Jenis Hardware</label>
+                          <label>Owner Software</label>
+                      </div>
+                      <div class="input-field col s12">
+                          <select>
+                              <option value="" disabled selected>Choose your option</option>
+                              <option value="1">Option 1</option>
+                              <option value="2">Option 2</option>
+                              <option value="3">Option 3</option>
+                          </select>
+                          <label>Jenis Software</label>
                       </div>
                       <div class="input-field col s12">
                           <select>
@@ -137,7 +137,7 @@
                               <option value="2">Option 2</option>
                               <option value="3">Option 3</option>
                           </select>
-                          <label>Kondisi Hardware</label>
+                          <label>Kondisi Software</label>
                       </div>
                       <div class="input-field col s12">
                           <input id="last_name" placeholder="Masukan fungsi" type="text" class="validate">
@@ -153,8 +153,34 @@
                           <label>Status Kepemilikan</label>
                       </div>
                       <div class="input-field col s12">
-                          <input id="last_name" placeholder="Rp. " type="number" class="validate">
+                          <input id="last_name" placeholder="Rp. 0101 " type="number" class="validate">
                           <label for="last_name">Harga</label>
+                      </div>
+                      <div class="input-field col s12">
+                          <textarea id="textarea1" placeholder="" class="materialize-textarea"></textarea>
+                          <label for="textarea1">Deskripsi</label>
+                      </div>
+                      <div class="input-field col s12">
+                          <textarea id="textarea1" placeholder="" class="materialize-textarea"></textarea>
+                          <label for="textarea1">Spesifikasi</label>
+                      </div>
+                      <div class="input-field col s12">
+                          <select>
+                              <option value="" disabled selected>Choose your option</option>
+                              <option value="1">Option 1</option>
+                              <option value="2">Option 2</option>
+                              <option value="3">Option 3</option>
+                          </select>
+                          <label>Lokasi</label>
+                      </div>
+                      <div class="input-field col s12">
+                          <select>
+                              <option value="" disabled selected>Choose your option</option>
+                              <option value="1">Option 1</option>
+                              <option value="2">Option 2</option>
+                              <option value="3">Option 3</option>
+                          </select>
+                          <label>Lokasi Data Center</label>
                       </div>
                     </div>
                     </div>
@@ -164,18 +190,6 @@
                           <input placeholder="Masukan Nama Server" id="first_name" type="text" class="validate">
                           <label for="first_name">Nama Server</label>
                         </div>
-                         <form>
-                        <div class="input-field col s12">
-                          <textarea id="textarea1" placeholder="" class="materialize-textarea"></textarea>
-                          <label for="textarea1">Deskripsi Hardware</label>
-                      </div>
-                        </form>
-                        <form>
-                          <div class="input-field col s12">
-                            <textarea id="textarea1" placeholder="" class="materialize-textarea"></textarea>
-                            <label for="textarea1">Spesifikasi Hardware</label>
-                        </div>
-                        </form>
                         <div class="input-field col s12">
                           <select>
                             <option value="" disabled selected>Choose your option</option>
@@ -183,17 +197,68 @@
                             <option value="2">Option 2</option>
                             <option value="3">Option 3</option>
                           </select>
-                          <label>Lokasi</label>
+                          <label>Region Server</label>
                         </div>
-                      
+                        <div class="input-field col s12">
+                          <input placeholder="Masukan Platform" id="first_name" type="text" class="validate">
+                          <label for="first_name">Platform</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input placeholder="Masukan Nama Database" id="first_name" type="text" class="validate">
+                            <label for="first_name">Database</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input placeholder="Masukan IP Address" id="first_name" type="text" class="validate">
+                            <label for="first_name">IP Address</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input placeholder="Masukan Hostname" id="first_name" type="text" class="validate">
+                            <label for="first_name">Hostname</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input placeholder="Masukan Nama Memory" id="first_name" type="text" class="validate">
+                            <label for="first_name">Memory</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input placeholder="Masukan Nama Storage" id="first_name" type="text" class="validate">
+                            <label for="first_name">Storage</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input placeholder="Masukan Nama CPU" id="first_name" type="text" class="validate">
+                            <label for="first_name">CPU</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input placeholder="Masukan Nama Mesin Server" id="first_name" type="text" class="validate">
+                            <label for="first_name">Mesin Server</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <select>
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                            <label>Site</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <select>
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                            <label>Backup Realtime</label>
+                        </div>
                         <div class="input-field col s12">
                             <label for="birthdate">Waktu Pembelian/Sewa</label>
                             <input placeholder="" type="text" class="datepicker">
-                          </div>
                         </div>
+                        
+
+                      </div>
                     </div>
                     <div class="col s12 center">
-                      <button class="btn waves-effect waves-light blue-text buttonWakwaw z-depth-0" type="submit" name="action" style="margin-right: 20px;">Cancel</button>
+                      <button class="btn waves-effect waves-light blue-text buttonWakwaw z-depth-0" type="submit" name="action" style="margin-right: 20px;">Reset</button>
                       <button class="btn waves-effect waves-light blue" type="submit" name="action">Add
                         <i class="material-icons right">send</i>
                       </button>
@@ -215,8 +280,8 @@
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
+  <script src="../assets/js/materialize.js"></script>
+  <script src="../assets/js/init.js"></script>
 
   </body>
 </html>
