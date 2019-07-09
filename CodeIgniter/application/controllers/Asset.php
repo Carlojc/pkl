@@ -3,6 +3,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Asset extends CI_Controller {
 
+	function __construct(){
+		parent::__construct();
+		$this->load->helper('url');
+		$this->load->library('session');
+
+		if($this->session->userdata('status') != "login"){
+			redirect(base_url("login"));
+		}
+	}
+
 	public function beranda()
 	{
 		$this->load->view('Beranda');
@@ -55,5 +65,11 @@ class Asset extends CI_Controller {
 	public function vendor()
 	{
 		$this->load->view('Vendor');
+	}
+
+	public function logout()
+	{
+		$this->session->sess_destroy();
+		redirect(base_url('login'));
 	}
 }

@@ -10,10 +10,10 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-        <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="../assets/css/form-elements.css">
-        <link rel="stylesheet" href="../assets/css/style.css">
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="assets/css/form-elements.css">
+        <link rel="stylesheet" href="assets/css/login_css.css">
 
     </head>
     <body>
@@ -22,6 +22,12 @@
         <div class="top-content">
         	
             <div class="inner-bg">
+                <?php if (@$_SESSION['gagal'] != null) {?>
+                  <div class="d-sm text-center mb-4 bg-gradient-danger">
+                    <h1 class="h3 mb-0 text-white"><?=$_SESSION['gagal']?></h1>
+                  </div><?php
+                }
+                ?>
                 <div class="container">
                 
                     <div class="row">
@@ -32,20 +38,20 @@
                                     <h3 style="text-align: left;">IT Service Catalogue</h3>
                         		</div>
                         		<div class="form-top-right">
-                        			<img src="../assets/img/bni.png">
+                        			<img src="assets/img/bni.png">
                         		</div>
                             </div>
                             <div class="form-bottom">
-			                    <form role="form" action="" method="post" class="login-form">
+			                    <form role="form" action="<?=base_url('login/proses_login')?>" method="post" class="login-form">
 			                    	<div class="form-group">
                                         <h4>Username:</h4>
 			                    		<label class="sr-only" for="form-username">Username:</label>
-			                        	<input type="text" name="form-username" placeholder="Username" class="form-username form-control" id="form-username">
+			                        	<input type="text" name="username" placeholder="Username" class="form-username form-control" id="form-username">
 			                        </div>
 			                        <div class="form-group">
                                         <h4>Password:</h4>
 			                        	<label class="sr-only" for="form-password">Password:</label>
-			                        	<input type="password" name="form-password" placeholder="Password" class="form-password form-control" id="form-password">
+			                        	<input type="password" name="password" placeholder="Password" class="form-password form-control" id="form-password">
 			                        </div>
 			                        <button type="submit" class="btn">Sign in</button>
 			                    </form>
@@ -56,10 +62,10 @@
 
 
         <!-- Javascript -->
-        <script src="../assets/js/jquery-1.11.1.min.js"></script>
-        <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="../assets/js/jquery.backstretch.min.js"></script>
-        <script src="../assets/js/scripts.js"></script>
+        <script src="assets/js/jquery-1.11.1.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.backstretch.min.js"></script>
+        <script src="assets/js/scripts.js"></script>
         
    
     </body>

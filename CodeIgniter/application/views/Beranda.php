@@ -17,7 +17,7 @@
     <a id="logo-container" href="#" class="brand-logo" style="font-weight: bold;color: #f8a55d; margin-left: 40px;">IT Service Catalogues</a>
     
     <ul class="right hide-on-med-and-down" style="margin-right: 40px;">
-      <li><a class="white-text" href="#"><b>Logout<i class="material-icons right">exit_to_app</i></b></a></li>
+      <li><a class="white-text" href="<?=base_url('asset/logout')?>"><b>Logout<i class="material-icons right">exit_to_app</i></b></a></li>
     </ul>
     <ul id="nav-mobile" class="sidenav sidenav-fixed" style="top: 65px; width: 250px; z-index: -1; background-color:#004b66;">
       <li>
