@@ -33,6 +33,10 @@ class Asset extends CI_Controller {
 		$this->load->view('addAssetHardware');
 	}
 
+	public function addRegion(){
+		$this->load->view('addRegion');
+	}
+
 	public function software()
 	{
 		$this->load->view('assetSoftware');
@@ -46,6 +50,15 @@ class Asset extends CI_Controller {
 	{
 		$this->load->view('addAssetSoftware');
 	}
+	public function kondisi_asset(){
+		$this->load->view('KondisiAsset');
+	}
+
+	public function index_software(){
+		$data['software'] = $this->Software_model->get_software();
+		$this->load->view('assetSoftware',$data);
+	}
+
 	public function entity()
 	{
 		$this->load->view('entity');

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">  
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Jenis Hardware</title>
+  <title>Region Server</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -55,6 +55,7 @@
       border : solid white 1px;
       color: black;
     }
+
    </style>
 </head>
 <div class="navbar-fixed">
@@ -113,77 +114,66 @@
         <li><a class="white-text" href="#!"></a></li>
 
     </ul>
-    <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-  </div>
-</nav>
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
 </div>
 <body>
-<main>
-  <div class="container" style="margin-top: 20px;">
-      <div class="row">
-        <div class="col s12 grey-text text-darken-2"><b style="font-size: 37px">Jenis Hardware</b>
-          <br>
-        Last Update : 20 April 2019 08:08:08
-        </div>
-      </div>
-      <div class="row">
-        <div class="col s12">
-          <div class="card z-depth-3">
-            <div class="card-content" style="padding: 5px 20px; background-color: #004b66;">
-                <div class="row" style="margin-bottom: 0px;">
-                    <div class="input-field col s4" style="margin-bottom: 0px; ">
-                      <i class="material-icons white-text prefix">search</i>
-                      <input id="icon_prefix" type="text" placeholder="Masukan Keyword disini" class="validate white-text">
-                      <label for="icon_prefix">Cari</label>
-                    </div>
-                    <div class="col s8">
-                        <ul class="right" id="menu" style="margin-right: 20px; margin-top: 15px;">
-                            <li><a class="waves-effect btn buttonWakwaw z-depth-0"><i class="material-icons left">add</i>Add Data</a></li>
-                            <li><a class="waves-effect btn buttonWakwaw z-depth-0"><i class="material-icons left">file_copy</i>Download</a></li>
-                        </ul>
+    <main>
+        <div class="container" style="margin-top: 20px;">
+            <div class="row">
+                <div class="col s12 grey-text text-darken-2"><b style="font-size: 37px">Input Vendor</b>
+                    <br>
+                    Last Update : 20 April 2019 08:08:08
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <div class="card z-depth-3">
+                        <div class="card-content">
+                            <div class="row">
+                                <form action="<?=base_url('Region/save')?>" method="post">
+                                    <div class="col s12">
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input placeholder="GAS" name="GAS" type="text" class="validate" aria-describedby="inputGroupPrepend2" required>
+                                                <label for="GAS">GAS</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input placeholder="DEV" name="DEV" type="text" class="validate" aria-describedby="inputGroupPrepend2" required>
+                                                <label for="DEV">DEV</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input placeholder="PROD" name="PROD" type="text" class="validate" aria-describedby="inputGroupPrepend2" required>
+                                                <label for="PROD">PROD</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col s12 center">
+                                        <button class="btn waves-effect waves-light blue-text buttonWakwaw z-depth-0" type="submit" name="action" style="margin-right: 20px;">Reset</button>
+                                        <button class="btn waves-effect waves-light blue" name="submit" type="submit" value="simpan">Add
+                                            <i class="material-icons right">send</i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="card-content">
-                <table class="responsive-table">
-                    <thead>
-                      <tr>
-                          <th>No</th>
-                          <th>Merk</th>
-                          <th>Type</th>
-                          <th>Jenis</th>
-                          <th>Aksi</th>
-                      </tr>
-                    </thead>
-            
-                    <tbody>
-                      <tr>
-                      <td>1</td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                      </tr>
-                    </tbody>
-                  </table>
-            </div>
-          </div>
         </div>
-      </div>
-  </div>
-</main>
+    </main>
 
 
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
 
- 
+</body>
 
-
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="<?=base_url('assets')?>/js/materialize.js"></script>
-  <script src="<?=base_url('assets')?>/js/init.js"></script>
-
-  </body>
 </html>

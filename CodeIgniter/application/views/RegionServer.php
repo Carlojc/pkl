@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">  
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -61,16 +61,16 @@
 <div class="navbar-fixed">
 <nav class="z-depth-2" role="navigation" style="background-color: #003366">
   <div class="nav-wrapper">
-    <img src="../assets/img/logo.jpg" style="height: 65px;">
+    <img src="<?=base_url('assets')?>/img/logo.jpg" style="height: 65px;">
     <a id="logo-container" href="#" class="brand-logo" style="font-weight: bold;color: #f8a55d; margin-left: 40px;">IT Service Catalogues</a>
     
     <ul class="right hide-on-med-and-down" style="margin-right: 40px;">
-      <li><a class="white-text" href="#"><b>Logout<i class="material-icons right">exit_to_app</i></b></a></li>
+      <li><a class="white-text" href="<?=base_url('asset/logout')?>"><b>Logout<i class="material-icons right">exit_to_app</i></b></a></li>
     </ul>
-    <ul id="nav-mobile" class="sidenav sidenav-fixed" style="top: 65px; width: 250px; z-index: -1; background-color: #004b66;">
+    <ul id="nav-mobile" class="sidenav sidenav-fixed" style="top: 65px; width: 250px; z-index: -1; background-color:#004b66;">
       <li>
         <div style="margin-left: 25px; margin-top: 20px; display: flex;">
-          <div style="width: 50px; margin-right: 10px; margin-top: 10px;"><img class="circle" style="width: 50px; height: 50px;" src="../assets/img/background2.jpg"></div>
+          <div style="width: 50px; margin-right: 10px; margin-top: 10px;"><img class="circle" style="width: 50px; height: 50px;" src="<?=base_url('assets')?>/img/background2.jpg"></div>
           <div style="width: 200px;" style="margin-top: -10px;">
             <div style="height: 20px; word-wrap: break-word;"><b>John Doe</b></div>
             <div style="height: 0px;">Administrator</div>
@@ -78,15 +78,15 @@
         </div>
       </li>
         <li><div class="divider"></div></li>  
-        <li><a class="white-text" href="#!">Beranda</a></li>
+        <li><a class="white-text" href="<?=base_url('asset/beranda')?>">Beranda</a></li>
         <li>
           <ul class="collapsible collapsible-accordion">
             <li>
               <a class="collapsible-header white-text" style="padding-left: 32px">Hardware</a>
               <div class="collapsible-body" style="background-color: #00769d">
                 <ul style="padding-left: 20px;">
-                  <li><a class="white-text" href="#!">Asset Hardware</a></li>
-                  <li><a class="white-text" href="#!">Jenis Hardware</a></li>
+                  <li><a class="white-text" href="<?=base_url('asset/hardware')?>">Asset Hardware</a></li>
+                  <li><a class="white-text" href="<?=base_url('asset/jenis_hardware')?>">Jenis Hardware</a></li>
                 </ul>
               </div>
             </li>
@@ -98,19 +98,19 @@
                 <a class="collapsible-header white-text" style="padding-left: 32px">Sofware</a>
                 <div class="collapsible-body" style="background-color: #00769d">
                   <ul style="padding-left: 20px;">
-                    <li><a class="white-text" href="#!">Asset Software</a></li>
-                    <li><a class="white-text" href="#!">Jenis Software</a></li>
+                    <li><a class="white-text" href="<?=base_url('asset/software')?>">Asset Software</a></li>
+                    <li><a class="white-text" href="<?=base_url('asset/jenis_software')?>">Jenis Software</a></li>
                   </ul>
                 </div>
               </li>
             </ul>
           </li>
-        <li><a class="white-text" href="#!">Entitiy</a></li>
-        <li><a class="white-text" href="#!">Kondisi Asset</a></li>
-        <li><a class="white-text" href="#!">Lokasi Data Center</a></li>
-        <li><a class="white-text" href="#!">Region Server</a></li>
-        <li><a class="white-text" href="#!">User</a></li>
-        <li><a class="white-text" href="#!">Vendor</a></li>
+        <li><a class="white-text" href="<?=base_url('asset/entity')?>">Entitiy</a></li>
+        <li><a class="white-text" href="<?=base_url('asset/kondisi_asset')?>">Kondisi Asset</a></li>
+        <li><a class="white-text" href="<?=base_url('asset/lokasidatacentre')?>">Lokasi Data Center</a></li>
+        <li><a class="white-text" href="<?=base_url('asset/regionserver')?>">Region Server</a></li>
+        <li><a class="white-text" href="<?=base_url('asset/user')?>">User</a></li>
+        <li><a class="white-text" href="<?=base_url('asset/vendor')?>">Vendor</a></li>
         <li><a class="white-text" href="#!"></a></li>
 
     </ul>
@@ -139,7 +139,7 @@
                     </div>
                     <div class="col s8">
                         <ul class="right" id="menu" style="margin-right: 20px; margin-top: 15px;">
-                            <li><a class="waves-effect btn buttonWakwaw z-depth-0" href=""><i class="material-icons left">add</i>Add Data</a></li>
+                            <li><a class="waves-effect btn buttonWakwaw z-depth-0" href="<?=base_url('asset/addRegion')?>"><i class="material-icons left">add</i>Add Data</a></li>
                             <li><a class="waves-effect btn buttonWakwaw z-depth-0"><i class="material-icons left">file_copy</i>Download</a></li>
                         </ul>
                     </div>
@@ -158,24 +158,22 @@
                     </thead>  
             
                     <tbody>
+                    <?php
+                    $count = 0;
+                    foreach ('region_server'->result() as $row) {
+                     $count ++;
+                    }
+                    ?>
                       <tr>
-                        <td>1</td>
-                        <td>x</td>
-                        <td>budi</td>
-                        <td>y</td>
-                        <td><a class="buttonWakwaw" style="padding-left: 20px;"><i class="material-icons">edit</i></a>
+                        <td><?php echo $count;?></td>
+                        <td><?php echo $row->$GAS;?></td>
+                        <td><?php echo $row->$DEV;?></td>
+                        <td><?php echo $row->$PROD;?></td>
+                        <td><a class="buttonWakwaw" style="padding-left: 20px;" href="<?=base_url('Region/get_edit')?>"><i class="material-icons">edit</i></a>
                         <a class="buttonWakwaw"><i class="material-icons">delete</i></a>
                         </td>
                       </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>B</td>
-                        <td>london</td>
-                        <td>z</td>
-                        <td><a class="buttonWakwaw" style="padding-left: 20px;"><i class="material-icons">edit</i></a>
-                        <a class="buttonWakwaw"><i class="material-icons">delete</i></a>
-                        </td>
-                      </tr>
+                 
                     </tbody>
                   </table>
             </div>

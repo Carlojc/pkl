@@ -30,15 +30,15 @@
         </div>
       </li>
         <li><div class="divider"></div></li>  
-        <li><a class="white-text" href="#!">Beranda</a></li>
+        <li><a class="white-text" href="<?=base_url('asset/beranda')?>">Beranda</a></li>
         <li>
           <ul class="collapsible collapsible-accordion">
             <li>
               <a class="collapsible-header white-text" style="padding-left: 32px">Hardware</a>
               <div class="collapsible-body" style="background-color: #00769d">
                 <ul style="padding-left: 20px;">
-                  <li><a class="white-text" href="#!">Asset Hardware</a></li>
-                  <li><a class="white-text" href="#!">Jenis Hardware</a></li>
+                  <li><a class="white-text" href="<?=base_url('asset/hardware')?>">Asset Hardware</a></li>
+                  <li><a class="white-text" href="<?=base_url('asset/jenis_hardware')?>">Jenis Hardware</a></li>
                 </ul>
               </div>
             </li>
@@ -50,19 +50,19 @@
                 <a class="collapsible-header white-text" style="padding-left: 32px">Sofware</a>
                 <div class="collapsible-body" style="background-color: #00769d">
                   <ul style="padding-left: 20px;">
-                    <li><a class="white-text" href="#!">Asset Software</a></li>
-                    <li><a class="white-text" href="#!">Jenis Software</a></li>
+                    <li><a class="white-text" href="<?=base_url('asset/software')?>">Asset Software</a></li>
+                    <li><a class="white-text" href="<?=base_url('asset/jenis_software')?>">Jenis Software</a></li>
                   </ul>
                 </div>
               </li>
             </ul>
           </li>
-        <li><a class="white-text" href="#!">Entitiy</a></li>
-        <li><a class="white-text" href="#!">Kondisi Asset</a></li>
-        <li><a class="white-text" href="#!">Lokasi Data Center</a></li>
-        <li><a class="white-text" href="#!">Region Server</a></li>
-        <li><a class="white-text" href="#!">User</a></li>
-        <li><a class="white-text" href="#!">Vendor</a></li>
+        <li><a class="white-text" href="<?=base_url('asset/entity')?>">Entitiy</a></li>
+        <li><a class="white-text" href="<?=base_url('asset/kondisi_asset')?>">Kondisi Asset</a></li>
+        <li><a class="white-text" href="<?=base_url('asset/lokasidatacentre')?>">Lokasi Data Center</a></li>
+        <li><a class="white-text" href="<?=base_url('asset/regionserver')?>">Region Server</a></li>
+        <li><a class="white-text" href="<?=base_url('asset/user')?>">User</a></li>
+        <li><a class="white-text" href="<?=base_url('asset/vendor')?>">Vendor</a></li>
         <li><a class="white-text" href="#!"></a></li>
 
     </ul>
