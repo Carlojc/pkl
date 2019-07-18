@@ -15,13 +15,13 @@ class Region extends CI_Controller{
     $GAS = $this->input->post('GAS');
     $DEV = $this->input->post('DEV');
     $PROD = $this->input->post('PROD');
-    $this->product_model->save($GAS,$DEV,$PROD);
-    redirect('region_server');
+    $this->Region_model->add($GAS,$DEV,$PROD);
+    redirect('asset/regionserver');
   }
   function delete(){
     $ID_Region_Server = $this->uri->segment(3);
     $this->Region_model->delete($ID_Region_Server);
-    redirect('region_server');
+   redirect('asset/regionserver');
   }
   function get_edit(){
      $ID_Region_Server = $this->uri->segment(3);
@@ -34,7 +34,6 @@ class Region extends CI_Controller{
                     'PROD' => $i['PROD'], );
       $this->load->view('addRegion',$data);
      }
-
   }
 
   function update(){
@@ -42,8 +41,8 @@ class Region extends CI_Controller{
     $GAS = $this->input->post('GAS');
     $DEV = $this->input->post('DEV');
     $PROD = $this->input->post('PROD');
-    $this->product_model->update($ID_Region_Server,$GAS,$DEV,$PROD);
-    redirect('region_server');
+    $this->Region_model->update($ID_Region_Server,$GAS,$DEV,$PROD);
+    redirect('asset/regionserver');
   }
 
 }

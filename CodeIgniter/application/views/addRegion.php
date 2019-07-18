@@ -122,7 +122,7 @@
     <main>
         <div class="container" style="margin-top: 20px;">
             <div class="row">
-                <div class="col s12 grey-text text-darken-2"><b style="font-size: 37px">Input Vendor</b>
+                <div class="col s12 grey-text text-darken-2"><b style="font-size: 37px">Add Region</b>
                     <br>
                     Last Update : 20 April 2019 08:08:08
                 </div>
@@ -132,27 +132,27 @@
                     <div class="card z-depth-3">
                         <div class="card-content">
                             <div class="row">
-                                <form action="<?=base_url('Region/save')?>" method="post">
-                                    <div class="col s12">
-                                        <div class="row">
-                                            <div class="input-field col s12">
-                                                <input placeholder="GAS" name="GAS" type="text" class="validate" aria-describedby="inputGroupPrepend2" required>
-                                                <label for="GAS">GAS</label>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="input-field col s12">
-                                                <input placeholder="DEV" name="DEV" type="text" class="validate" aria-describedby="inputGroupPrepend2" required>
-                                                <label for="DEV">DEV</label>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="input-field col s12">
-                                                <input placeholder="PROD" name="PROD" type="text" class="validate" aria-describedby="inputGroupPrepend2" required>
-                                                <label for="PROD">PROD</label>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <form action="<?php echo site_url('Region/save')?> " method="post">
+                                   <div class="col s12">
+                         <form>
+                        <div class="input-field col s12">
+                          <textarea id="textarea1" placeholder="" class="materialize-textarea"></textarea>
+                          <label for="textarea1">GAS</label>
+                      </div>
+                        </form>
+                        <form>
+                          <div class="input-field col s12">
+                            <textarea id="textarea1" placeholder="" class="materialize-textarea"></textarea>
+                            <label for="textarea1">DEV</label>
+                        </div>
+                        </form>
+                        <form>
+                          <div class="input-field col s12">
+                            <textarea id="textarea1" placeholder="" class="materialize-textarea"></textarea>
+                            <label for="textarea1">PROD</label>
+                        </div>
+                        </form>
+                        </div>
                                     <div class="col s12 center">
                                         <button class="btn waves-effect waves-light blue-text buttonWakwaw z-depth-0" type="submit" name="action" style="margin-right: 20px;">Reset</button>
                                         <button class="btn waves-effect waves-light blue" name="submit" type="submit" value="simpan">Add

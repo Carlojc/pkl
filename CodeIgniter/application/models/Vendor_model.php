@@ -28,7 +28,6 @@ class Vendor_model extends CI_Model
 
     public function update($ID_Vendor,$nama_vendor,$alamat,$No_Telp,$No_Fax,$Email){
         $data = array(
-        	''
         	'nama_vendor' =>$nama_vendor ,
 			 'alamat' =>$alamat ,
 			 'No_telp' =>$No_telp ,

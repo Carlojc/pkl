@@ -139,7 +139,7 @@
                     </div>
                     <div class="col s8">
                         <ul class="right" id="menu" style="margin-right: 20px; margin-top: 15px;">
-                            <li><a class="waves-effect btn buttonWakwaw z-depth-0" href="<?=base_url('asset/addRegion')?>"><i class="material-icons left">add</i>Add Data</a></li>
+                            <li><a class="waves-effect btn buttonWakwaw z-depth-0" href="<?=base_url('Region/add_new')?>"><i class="material-icons left">add</i>Add Data</a></li>
                             <li><a class="waves-effect btn buttonWakwaw z-depth-0"><i class="material-icons left">file_copy</i>Download</a></li>
                         </ul>
                     </div>
@@ -160,20 +160,22 @@
                     <tbody>
                     <?php
                     $count = 0;
-                    foreach ('region_server'->result() as $row) {
+                    $sql = $this->db->query("SELECT * FROM region_server");
+                    foreach ($sql->result_array() as $row):
                      $count ++;
-                    }
                     ?>
                       <tr>
-                        <td><?php echo $count;?></td>
-                        <td><?php echo $row->$GAS;?></td>
-                        <td><?php echo $row->$DEV;?></td>
-                        <td><?php echo $row->$PROD;?></td>
-                        <td><a class="buttonWakwaw" style="padding-left: 20px;" href="<?=base_url('Region/get_edit')?>"><i class="material-icons">edit</i></a>
-                        <a class="buttonWakwaw"><i class="material-icons">delete</i></a>
+                        <th scope="row"><?php echo $count; ?></th>
+                        <td><?php echo $row['GAS']?></td>
+                        <td><?php echo $row['DEV'];?></td>
+                        <td><?php echo $row['PROD'];?></td>
+                        <td><a class="buttonWakwaw" style="padding-left: 20px;" href="<?=base_url('Region/add_new')?>"><i class="material-icons">edit</i></a>
+                        <a class="buttonWakwaw" href="<?php echo site_url('Region/delete/'.$row['ID_Region_Server'])?>"><i class="material-icons">delete</i></a>
                         </td>
                       </tr>
-                 
+                      <?php
+                      endforeach;
+                      ?>
                     </tbody>
                   </table>
             </div>
