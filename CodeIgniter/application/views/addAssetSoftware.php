@@ -147,7 +147,7 @@
                           </select>
                           <label>Kondisi Software</label>
                       </div>
-                      <div class="input-field colx s12">
+                      <div class="input-field col s12">
                           <input id="last_name" placeholder="Masukan fungsi" type="text" class="validate">
                           <label for="last_name">Fungsi</label>
                       </div>

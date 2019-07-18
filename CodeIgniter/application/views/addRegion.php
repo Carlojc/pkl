@@ -11,40 +11,6 @@
   <link href="<?=base_url('assets')?>/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
   <style>
-    /* label color */
-    .input-field label {
-     color: #fff !important;
-   }
-   .input-field input[type=text] {
-     border-bottom: 1px solid #fff !important;
-    }
-   /* label focus color */
-   .input-field input[type=text]:focus + label {
-     color: #fff !important;
-   }
-   /* label underline focus color */
-   .input-field input[type=text]:focus {
-     border-bottom: 1px solid #fff !important;
-     box-shadow: 0 1px 0 0 #fff !important;
-   }
-   /* valid color */
-   .input-field input[type=text].valid {
-     border-bottom: 1px solid #fff !important;
-     box-shadow: 0 1px 0 0 #fff !important;
-   }
-   /* invalid color */
-   .input-field input[type=text].invalid {
-     border-bottom: 1px solid #fff;
-     box-shadow: 0 1px 0 0 #fff;
-   }
-   /* icon prefix focus color */
-   .input-field .prefix.active {
-     color: #fff !important;
-   }
-    ul#menu li {
-      display:inline;
-      margin: 10px;
-    }
     .buttonWakwaw {
       background-color: transparent;
       border : solid white 1px;
@@ -134,24 +100,21 @@
                             <div class="row">
                                 <form action="<?php echo site_url('Region/save')?> " method="post">
                                    <div class="col s12">
-                         <form>
-                        <div class="input-field col s12">
-                          <textarea id="textarea1" placeholder="" class="materialize-textarea"></textarea>
-                          <label for="textarea1">GAS</label>
-                      </div>
-                        </form>
-                        <form>
+                                   
+                          <div class="input-field col s12">
+                            <textarea id="textarea1" placeholder="" class="materialize-textarea"></textarea>
+                            <label for="textarea1">GAS</label>
+                        </div>
+                        
                           <div class="input-field col s12">
                             <textarea id="textarea1" placeholder="" class="materialize-textarea"></textarea>
                             <label for="textarea1">DEV</label>
                         </div>
-                        </form>
-                        <form>
+                        
                           <div class="input-field col s12">
                             <textarea id="textarea1" placeholder="" class="materialize-textarea"></textarea>
                             <label for="textarea1">PROD</label>
                         </div>
-                        </form>
                         </div>
                                     <div class="col s12 center">
                                         <button class="btn waves-effect waves-light blue-text buttonWakwaw z-depth-0" type="submit" name="action" style="margin-right: 20px;">Reset</button>
@@ -170,9 +133,9 @@
 
 
     <!--  Scripts-->
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="js/materialize.js"></script>
-    <script src="js/init.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="<?=base_url('assets')?>/js/materialize.js"></script>
+  <script src="<?=base_url('assets')?>/js/init.js"></script>
 
 </body>
 
