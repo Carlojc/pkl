@@ -138,7 +138,7 @@
                     </div>
                     <div class="col s8">
                         <ul class="right" id="menu" style="margin-right: 20px; margin-top: 15px;">
-                            <li><a class="waves-effect btn buttonWakwaw z-depth-0" href="<?=base_url('asset/add_hardware')?>"><i class="material-icons left">add</i>Add Data</a></li>
+                            <li><a class="waves-effect btn buttonWakwaw z-depth-0"><i class="material-icons left">add</i>Add Data</a></li>
                             <li><a class="waves-effect btn buttonWakwaw z-depth-0"><i class="material-icons left">file_copy</i>Download</a></li>
                         </ul>
                     </div>

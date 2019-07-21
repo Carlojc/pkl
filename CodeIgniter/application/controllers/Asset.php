@@ -1,14 +1,16 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Asset extends CI_Controller {
+class Asset extends CI_Controller
+{
 
-	function __construct(){
+	function __construct()
+	{
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->library('session');
 
-		if($this->session->userdata('status') != "login"){
+		if ($this->session->userdata('status') != "login") {
 			redirect(base_url("login"));
 		}
 	}
@@ -33,7 +35,8 @@ class Asset extends CI_Controller {
 		$this->load->view('addAssetHardware');
 	}
 
-	public function addRegion(){
+	public function addRegion()
+	{
 		$this->load->view('addRegion');
 	}
 
@@ -50,13 +53,19 @@ class Asset extends CI_Controller {
 	{
 		$this->load->view('addAssetSoftware');
 	}
-	public function kondisi_asset(){
+	public function kondisi_asset()
+	{
 		$this->load->view('KondisiAsset');
 	}
+	public function addkondisi()
+	{
+		$this->load->view('AddKondisi');
+	}
 
-	public function index_software(){
+	public function index_software()
+	{
 		$data['software'] = $this->Software_model->get_software();
-		$this->load->view('assetSoftware',$data);
+		$this->load->view('assetSoftware', $data);
 	}
 
 	public function entity()
@@ -85,4 +94,5 @@ class Asset extends CI_Controller {
 		$this->session->sess_destroy();
 		redirect(base_url('login'));
 	}
+	
 }

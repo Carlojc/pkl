@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Add Region Server</title>
+  <title>Add Kondisi Asset</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -92,7 +92,7 @@
   <main>
     <div class="container" style="margin-top: 20px;">
       <div class="row">
-        <div class="col s12 grey-text text-darken-2"><b style="font-size: 37px">Add Region</b>
+        <div class="col s12 grey-text text-darken-2"><b style="font-size: 37px">Add Kondisi Asset</b>
           <br>
           Last Update : 20 April 2019 08:08:08
         </div>
@@ -102,21 +102,11 @@
           <div class="card z-depth-3">
             <div class="card-content">
               <div class="row">
-                <form action="<?php echo site_url('Region/save') ?> " method="post">
+                <form action="<?php echo site_url('Kondisi/save') ?> " method="post">
                   <div class="col s12">
                     <div class="input-field col s12">
-                      <textarea name="GAS" placeholder="" class="materialize-textarea" class="validate" aria-describedby="inputGroupPrepend2" required></textarea>
-                      <label for="GAS">GAS</label>
-                    </div>
-                    <div class="input-field col s12">
-                      <textarea name="DEV" placeholder="" class="materialize-textarea" class="validate" aria-describedby="inputGroupPrepend2" required></textarea>
-                      <label for="DEV">DEV</label>
-                    </div>
-                    <div class="input-field col s12">
-                      <textarea name="PROD" placeholder="" class="materialize-textarea" class="validate" aria-describedby="inputGroupPrepend2" required></textarea>
-                      <label for="PROD">PROD</label>
-                    </div>
-                  </div>
+                      <textarea name="Kondisi_Asset" placeholder="Bagus" class="materialize-textarea" class="validate" aria-describedby="inputGroupPrepend2" required></textarea>
+                      <label for="Kondisi_Asset">Kondisi Asset</label>
                   <div class="col s6 center">
                     <button class="btn waves-effect waves-light blue-text buttonWakwaw z-depth-0" type="submit" name="action" style="margin-right: 20px;">Reset</button>
                     <button class="btn waves-effect waves-light blue" name="submit" type="submit" value="simpan">Add

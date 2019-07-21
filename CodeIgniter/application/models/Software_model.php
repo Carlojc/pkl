@@ -9,7 +9,7 @@ class Software_model extends CI_Model
     	return $result;
     	    }
     public function save(){
-    	$data = array('Nama' => , );
+    	$data = array('' => , );
     	
     }
     public function add(){
