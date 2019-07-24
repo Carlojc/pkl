@@ -149,7 +149,7 @@
                       </td>
                     </tr>
 
-                    <!-- Modal Edit Mahasiswa-->
+                    <!-- Modal Edit -->
                     <div class="modal" id="edit<?php echo $row['ID_Region_Server'] ?>">
                       <div class="modal-content">
                         <h5>Update Data Region</h5>

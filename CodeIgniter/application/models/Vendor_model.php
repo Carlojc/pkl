@@ -4,16 +4,16 @@ class Vendor_model extends CI_Model
 {
     private $_table = "vendor";
 
-    public function get_region () {
+    public function get_vendor () {
     	$result = $this->db->get('vendor');
     	return $result;
     	    }
     public function add($nama_vendor,$alamat,$No_Telp,$No_Fax,$Email){
-    	$data = array('nama_vendor' =>$nama_vendor ,
-			 'alamat' =>$alamat ,
-			 'No_telp' =>$No_telp ,
-			 'No_fax' =>$No_fax , 
-			 'email' =>$email ,);
+    	$data = array('Nama_Vendor' =>$nama_vendor ,
+			 'Alamat' =>$alamat ,
+			 'No_Telp' =>$No_Telp ,
+			 'No_Fax' =>$No_Fax , 
+			 'Email' =>$Email ,);
 		$this->db->insert('vendor',$data);
     }
 
@@ -28,12 +28,11 @@ class Vendor_model extends CI_Model
 
     public function update($ID_Vendor,$nama_vendor,$alamat,$No_Telp,$No_Fax,$Email){
         $data = array(
-        	''
-        	'nama_vendor' =>$nama_vendor ,
-			 'alamat' =>$alamat ,
-			 'No_telp' =>$No_telp ,
-			 'No_fax' =>$No_fax , 
-			 'email' =>$email ,);
+        	'Nama_Vendor' =>$nama_vendor ,
+			 'Alamat' =>$alamat ,
+			 'No_Telp' =>$No_Telp ,
+			 'No_Fax' =>$No_Fax , 
+			 'Email' =>$Email ,);
         $this->db->where('ID_Vendor',$ID_Vendor);
         $this->db->update('vendor',$data);
     }

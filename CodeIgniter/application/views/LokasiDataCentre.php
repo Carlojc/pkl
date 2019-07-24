@@ -139,7 +139,7 @@
                     </div>
                     <div class="col s8">
                         <ul class="right" id="menu" style="margin-right: 20px; margin-top: 15px;">
-                            <li><a class="waves-effect btn buttonWakwaw z-depth-0" href=""><i class="material-icons left">add</i>Add Data</a></li>
+                            <li><a class="waves-effect btn buttonWakwaw z-depth-0" href="<?= base_url('asset/addLokasi') ?>"><i class="material-icons left">add</i>Add Data</a></li>
                             <li><a class="waves-effect btn buttonWakwaw z-depth-0"><i class="material-icons left">file_copy</i>Download</a></li>
                         </ul>
                     </div>
@@ -155,24 +155,78 @@
                           <th style="padding-left: 40px">Aksi</th>
                       </tr>
                     </thead>  
-            
                     <tbody>
+                    <?php
+                  $count = 0;
+                  $sql = $this->db->query("SELECT * FROM lokasi_data_center");
+                  foreach ($sql->result_array() as $row) :
+                    $count++;
+                    ?>
                       <tr>
-                        <td>1</td>
-                        <td>A</td>
-                        <td>Jalan</td>
-                        <td><a class="buttonWakwaw" style="padding-left: 20px;"><i class="material-icons">edit</i></a>
-                        <a class="buttonWakwaw"><i class="material-icons">delete</i></a>
+                      <th scope="row"><?php echo $count; ?></th>
+                      <td><?php echo $row['Nama_Lokasi_DC']; ?></td>
+                      <td><?php echo $row['Alamat_Lokasi_DC']; ?></td>
+                        <td><a class="buttonWakwaw" data-toggle="modal" data-target="#edit<?php echo $row['ID_Lokasi_DC'] ?>" style="padding-left: 20px;" href="#"><i class="material-icons">edit</i></a>
+                        <a class="buttonWakwaw" data-toggle="modal" data-target="#delete<?php echo $row['ID_Lokasi_DC'] ?>" href="#"><i class="material-icons">delete</i></a>
                         </td>
                       </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>B</td>
-                        <td>Jalan</td>
-                        <td><a class="buttonWakwaw" style="padding-left: 20px;"><i class="material-icons">edit</i></a>
-                        <a class="buttonWakwaw"><i class="material-icons">delete</i></a>
-                        </td>
-                      </tr>
+
+                      <!-- Modal Edit -->
+                    <div class="modal" id="edit<?php echo $row['ID_Lokasi_DC'] ?>">
+                      <div class="modal-content">
+                        <h5>Update Data Lokasi</h5>
+                        <form action="<?php echo site_url('Lokasi/update') ?>" method="post">
+                          <?php
+                          $id = $row['ID_Lokasi_DC'];
+                          $sql = $this->db->query("SELECT * FROM lokasi_data_center where ID_Lokasi_DC = '$id'");
+
+                          foreach ($sql->result_array() as $row) :
+                            ?>
+
+                            <input type="hidden" name="ID_Lokasi_DC" value="<?php echo $row['ID_Lokasi_DC']; ?>">
+
+                            <div class="form-group">
+                              <label>Nama Lokasi</label>
+                              <input type="text" name="Nama_Lokasi_DC" class="materialize-textarea" value="<?php echo $row['Nama_Lokasi_DC']; ?>">
+                            </div>
+
+                            <div class="form-group">
+                              <label>Alamat Lokasi</label>
+                              <input type="text" name="Alamat_Lokasi_DC" class="materialize-textarea" value="<?php echo $row['Alamat_Lokasi_DC']; ?>">
+                            </div>
+                            <div class="modal-footer">
+                              <button type="submit" class="waves-effect waves-light btn light-blue darken-4">Update</button>
+                              <button type="button" class="waves-effect waves-light btn red darken-1" data-dismiss="modal">Cancel</button>
+                            </div>
+                          <?php
+                          endforeach;
+                          ?>
+                        </form>
+                      </div>
+                    </div>
+
+                     <!-- Modal Delete -->
+                     <div class="modal" id="delete<?php echo $row['ID_Lokasi_DC'] ?>">
+                      <form action="<?php echo base_url('Lokasi/delete') ?> " method="post">
+                        <?php
+                        $id = $row['ID_Lokasi_DC'];
+                        $sql = $this->db->query("SELECT * FROM lokasi_data_center where ID_Lokasi_DC = '$id'");
+
+                        foreach ($sql->result_array() as $row) :
+                          ?>
+                          <div class="modal-content">
+                            <h5>WARNING!</h5>
+                            <p>Are you sure you want to delete this data?</p>
+                          </div>
+
+                          <div class="modal-footer">
+                            <input type="hidden" name="ID_Lokasi_DC" value="<?php echo $row['ID_Lokasi_DC']; ?>">
+                            <button class="waves-effect waves-light btn red darken-1">Delete</button>
+                            <button type="button" class="waves-effect waves-light btn white" data-dismiss="modal"><span class="black-text">Cancel</span></button>
+                          </div>
+                        <?php endforeach; ?>
+                    </div>
+                  <?php endforeach; ?>
                     </tbody>
                   </table>
             </div>
@@ -191,6 +245,8 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="<?=base_url('assets')?>/js/materialize.js"></script>
   <script src="<?=base_url('assets')?>/js/init.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
   </body>
 </html>

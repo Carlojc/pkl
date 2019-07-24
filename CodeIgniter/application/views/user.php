@@ -139,7 +139,7 @@
                     </div>
                     <div class="col s8">
                         <ul class="right" id="menu" style="margin-right: 20px; margin-top: 15px;">
-                            <li><a class="waves-effect btn buttonWakwaw z-depth-0" href=""><i class="material-icons left">add</i>Add Data</a></li>
+                            <li><a class="waves-effect btn buttonWakwaw z-depth-0" href="<?= base_url('asset/addUser') ?>"><i class="material-icons left">add</i>Add Data</a></li>
                             <li><a class="waves-effect btn buttonWakwaw z-depth-0"><i class="material-icons left">file_copy</i>Download</a></li>
                         </ul>
                     </div>
@@ -151,31 +151,82 @@
                       <tr>
                           <th>No</th>
                           <th>Nama</th>
-                          <th>Entity</th>
                           <th>Hak Akses</th>
                           <th style="padding-left: 40px">Aksi</th>
                       </tr>
                     </thead>  
-            
+                 <?php
+                  $count = 0;
+                  $sql = $this->db->query("SELECT * FROM user");
+                  foreach ($sql->result_array() as $row) :
+                    $count++;
+                    ?>
                     <tbody>
                       <tr>
-                        <td>1</td>
-                        <td>dani</td>
-                        <td>A</td>
-                        <td>View</td>
-                        <td><a class="buttonWakwaw" style="padding-left: 20px;"><i class="material-icons">edit</i></a>
-                        <a class="buttonWakwaw"><i class="material-icons">delete</i></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Bendi</td>
-                        <td>B</td>
-                        <td>View</td>
-                        <td><a class="buttonWakwaw" style="padding-left: 20px;"><i class="material-icons">edit</i></a>
-                        <a class="buttonWakwaw"><i class="material-icons">delete</i></a>
-                        </td>
-                      </tr>
+                      <th scope="row"><?php echo $count; ?></th>
+                      <td><?php echo $row['Nama']; ?></td>
+                      <td><?php echo $row['Hak_Akses']; ?></td>
+                      <td><a class="buttonWakwaw" data-toggle="modal" data-target="#edit<?php echo $row['ID_User'] ?>" style="padding-left: 20px;" href="#"><i class="material-icons">edit</i></a>
+                        <a class="buttonWakwaw" data-toggle="modal" data-target="#delete<?php echo $row['ID_User'] ?>" href="#"><i class="material-icons">delete</i></a>
+                      </td>
+                    </tr>
+                    <!-- Modal Edit -->
+                    <div class="modal" id="edit<?php echo $row['ID_User'] ?>">
+                      <div class="modal-content">
+                        <h5>Update Data User</h5>
+                        <form action="<?php echo site_url('Users/update') ?>" method="post">
+                          <?php
+                          $id = $row['ID_User'];
+                          $sql = $this->db->query("SELECT * FROM user where ID_User = '$id'");
+
+                          foreach ($sql->result_array() as $row) :
+                            ?>
+
+                            <input type="hidden" name="ID_User" value="<?php echo $row['ID_User']; ?>">
+
+                            <div class="form-group">
+                              <label>Nama</label>
+                              <input type="text" name="Nama" class="materialize-textarea" value="<?php echo $row['Nama']; ?>">
+                            </div>
+
+                            <div class="form-group">
+                              <label>Hak Akses</label>
+                              <input type="text" name="Hak_Akses" class="materialize-textarea" value="<?php echo $row['Hak_Akses']; ?>">
+                            </div>
+
+                            <div class="modal-footer">
+                              <button type="submit" class="waves-effect waves-light btn light-blue darken-4">Update</button>
+                              <button type="button" class="waves-effect waves-light btn red darken-1" data-dismiss="modal">Cancel</button>
+                            </div>
+                          <?php
+                          endforeach;
+                          ?>
+                        </form>
+                      </div>
+                    </div>
+
+                     <!-- Modal Delete -->
+                     <div class="modal" id="delete<?php echo $row['ID_User'] ?>">
+                      <form action="<?php echo base_url('Users/delete') ?> " method="post">
+                        <?php
+                        $id = $row['ID_User'];
+                        $sql = $this->db->query("SELECT * FROM user where ID_User = '$id'");
+
+                        foreach ($sql->result_array() as $row) :
+                          ?>
+                          <div class="modal-content">
+                            <h5>WARNING!</h5>
+                            <p>Are you sure you want to delete this data?</p>
+                          </div>
+
+                          <div class="modal-footer">
+                            <input type="hidden" name="ID_User" value="<?php echo $row['ID_User']; ?>">
+                            <button class="waves-effect waves-light btn red darken-1">Delete</button>
+                            <button type="button" class="waves-effect waves-light btn white" data-dismiss="modal"><span class="black-text">Cancel</span></button>
+                          </div>
+                        <?php endforeach; ?>
+                    </div>
+                  <?php endforeach; ?>
                     </tbody>
                   </table>
             </div>

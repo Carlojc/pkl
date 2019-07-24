@@ -13,15 +13,6 @@ class jenis_hw_model extends CI_Model
         return $data;
     }
 
-    public function single($ID_Jenis_HW)
-    {
-        $query = $this->db->get_where($this->table, array('ID_Jenis_HW' => $ID_Jenis_HW));
-        $data['object'] = $query->row();
-        $data['array'] = $query->row_array();
-        $data['count'] = $query->num_rows();
-        return $data;
-    }
-
     public function insert($data)
     {
         return $this->db->insert($this->table, $data);
