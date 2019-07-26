@@ -35,6 +35,11 @@ class Asset extends CI_Controller
 		$this->load->view('addAssetHardware');
 	}
 
+	public function addJenis_HW()
+	{
+		$this->load->view('addJenis_HW');
+	}
+
 	public function addRegion()
 	{
 		$this->load->view('addRegion');

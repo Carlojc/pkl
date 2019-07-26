@@ -9,6 +9,7 @@ class Region_model extends CI_Model
         $result = $this->db->get('region_server');
         return $result;
     }
+
     public function add($GAS, $DEV, $PROD)
     {
         $data = array('GAS' => $GAS, 'DEV' => $DEV, 'PROD' => $PROD);

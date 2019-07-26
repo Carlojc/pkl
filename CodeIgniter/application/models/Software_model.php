@@ -8,7 +8,12 @@ class Software_model extends CI_Model
     	$result = $this->db->get('software');
     	return $result;
     	    }
-    public function add($Nama_Aplikasi,$Owner_App,$Jenis_App,$Kondisi_App,$Status_App,$Nama_Server,$Fungsi,$Detail_Deskripsi,$Spesifikasi,$Platform,$Database,$IP_Address,$Hostname,$Memory,$Storage,$CPU,$Mesin_Server,$Lokasi_DC,$Developed_By,$Region_Server,$Site,$BackUp_Real_Time,$Tgl_Implementasi,$Berita_Acara,$Harga,$Harga,$Tgl_Pembelian,$SKP,$Tgl_Maintenance,$No_PKS,$PKS){
+
+    public function get_value_entity(){
+        $query = $this->db->select('*')->from('entity')->join('software' , 'Owner_App = Nama_Entity')->get();
+    }
+            
+    public function add($Nama_Aplikasi,$Owner_App,$Jenis_App,$Kondisi_App,$Status_App,$Nama_Server,$Fungsi,$Detail_Deskripsi,$Spesifikasi,$Platform,$Database,$IP_Address,$Hostname,$Memory,$Storage,$CPU,$Mesin_Server,$Lokasi,$Lokasi_DC,$Developed_By,$Region_Server,$Site,$BackUp_Real_Time,$Tgl_Implementasi,$Berita_Acara,$Harga,$Tgl_Pembelian,$SKP,$Tgl_Maintenance,$No_PKS,$PKS){
     	$data = array('Nama_Aplikasi' =>$Nama_Aplikasi ,
         'Owner_App' =>$Owner_App ,
         'Jenis_App' =>$Jenis_App ,
@@ -26,6 +31,7 @@ class Software_model extends CI_Model
         'Storage' =>$Storage ,
         'CPU' =>$CPU ,
         'Mesin_Server' =>$Mesin_Server ,
+        'Lokasi' =>$Lokasi ,
         'Lokasi_DC' =>$Lokasi_DC ,
         'Developed_By' =>$Developed_By ,
         'Region_Server' =>$Region_Server ,
@@ -40,6 +46,7 @@ class Software_model extends CI_Model
         'No_PKS' =>$No_PKS ,
         'PKS' =>$PKS ,
     	);
+        $this->db->insert('software', $data);
     }
     
     public function delete($ID_SW)
@@ -54,7 +61,7 @@ class Software_model extends CI_Model
         return $query;
     }
 
-    public function update($ID_SW,$Nama_Aplikasi,$Owner_App,$Jenis_App,$Kondisi_App,$Status_App,$Nama_Server,$Fungsi,$Detail_Deskripsi,$Spesifikasi,$Platform,$Database,$IP_Address,$Hostname,$Memory,$Storage,$CPU,$Mesin_Server,$Lokasi_DC,$Developed_By,$Region_Server,$Site,$BackUp_Real_Time,$Tgl_Implementasi,$Berita_Acara,$Harga,$Harga,$Tgl_Pembelian,$SKP,$Tgl_Maintenance,$No_PKS,$PKS)
+    public function update($ID_SW,$Nama_Aplikasi,$Owner_App,$Jenis_App,$Kondisi_App,$Status_App,$Nama_Server,$Fungsi,$Detail_Deskripsi,$Spesifikasi,$Platform,$Database,$IP_Address,$Hostname,$Memory,$Storage,$CPU,$Mesin_Server,$Lokasi_DC,$Developed_By,$Region_Server,$Site,$BackUp_Real_Time,$Tgl_Implementasi,$Berita_Acara,$Harga,$Tgl_Pembelian,$SKP,$Tgl_Maintenance,$No_PKS,$PKS)
     {
         $data = array('Nama_Aplikasi' =>$Nama_Aplikasi ,
         'Owner_App' =>$Owner_App ,

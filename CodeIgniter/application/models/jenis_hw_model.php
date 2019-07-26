@@ -2,29 +2,34 @@
 
 class jenis_hw_model extends CI_Model
 {
-    public $_table = "jenis_hardware";
+    private $_table = "jenis_hardware";
 
-    public function show($limit, $offset)
+    public function get_jenis_hardware()
     {
-        $query = $this->db->get($this->table, $limit, $offset);
-        $data['object'] = $query->result();
-        $data['array'] = $query->result_array();
-        $data['count'] = $query->num_rows();
-        return $data;
+        $result = $this->db->get('jenis_hardware');
+        return $result;
     }
 
-    public function insert($data)
+    public function add($Type_HW, $Jenis_HW)
     {
-        return $this->db->insert($this->table, $data);
-    }
-
-    public function update($data, $ID_Jenis_HW)
-    {
-        return $this->db->update($this->table, $data, array('ID_Jenis_HW' => $ID_Jenis_HW));
+        $data = array('Type_HW' => $Type_HW, 'Jenis_HW' => $Jenis_HW);
+        $this->db->insert('jenis_hardware', $data);
     }
 
     public function delete($ID_Jenis_HW)
     {
-        return $this->db->delete($this->table, array('ID_Jenis_HW' => $ID_Jenis_HW));
+        $this->db->where('ID_Jenis_HW', $ID_Jenis_HW);
+        $this->db->delete('jenis_hardware');
+    }
+    public function get_jenis_hardware_id($ID_Jenis_HW)
+    {
+        $query = $this->db->get_where('jenis_hardware', array('ID_Jenis_HW' => $ID_Jenis_HW));
+        return $query;
+    }
+    public function update($ID_Jenis_HW,$Type_HW, $Jenis_HW)
+    {
+        $data = array('Type_HW' => $Type_HW, 'Jenis_HW' => $Jenis_HW);
+        $this->db->where('ID_Jenis_HW', $ID_Jenis_HW);
+        $this->db->update('jenis_hardware', $data);
     }
 }

@@ -138,7 +138,7 @@
                     </div>
                     <div class="col s8">
                         <ul class="right" id="menu" style="margin-right: 20px; margin-top: 15px;">
-                            <li><a class="waves-effect btn buttonWakwaw z-depth-0"><i class="material-icons left">add</i>Add Data</a></li>
+                            <li><a class="waves-effect btn buttonWakwaw z-depth-0" href="<?= base_url('asset/addJenis_HW') ?>"><i class="material-icons left">add</i>Add Data</a></li>
                             <li><a class="waves-effect btn buttonWakwaw z-depth-0"><i class="material-icons left">file_copy</i>Download</a></li>
                         </ul>
                     </div>
@@ -157,15 +157,77 @@
                     </thead>
             
                     <tbody>
+                    <?php
+                      $count = 0;
+                      $sql = $this->db->query("SELECT * FROM jenis_hardware");
+                      foreach ($sql->result_array() as $row) :
+                      $count++;
+                    ?>
                       <tr>
-                      <td>1</td>
+                      <th scope="row"><?php echo $count; ?></th>
+                      <td><?php echo $row['Type_HW']; ?></td>
+                      <td><?php echo $row['Jenis_HW']; ?></td>
+                      <td><a class="buttonWakwaw" data-toggle="modal" data-target="#edit<?php echo $row['ID_Jenis_HW'] ?>" style="padding-left: 20px;" href="#"><i class="material-icons">edit</i></a>
+                        <a class="buttonWakwaw" data-toggle="modal" data-target="#delete<?php echo $row['ID_Jenis_HW'] ?>" href="#"><i class="material-icons">delete</i></a>
+                      </td>
                       </tr>
-                      <tr>
-                        <td>2</td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                      </tr>
+                      <!-- Modal Edit -->
+                    <div class="modal" id="edit<?php echo $row['ID_Jenis_HW'] ?>">
+                      <div class="modal-content">
+                        <h5>Update Data Jenis Hardware</h5>
+                        <form action="<?php echo site_url('jenis_hw/update') ?>" method="post">
+                          <?php
+                          $id = $row['ID_Jenis_HW'];
+                          $sql = $this->db->query("SELECT * FROM jenis_hardware where ID_Jenis_HW = '$id'");
+
+                          foreach ($sql->result_array() as $row) :
+                            ?>
+
+                            <input type="hidden" name="ID_Jenis_HW" value="<?php echo $row['ID_Jenis_HW']; ?>">
+
+                            <div class="form-group">
+                              <label>Tipe Hardware</label>
+                              <input type="text" name="Type_HW" class="materialize-textarea" value="<?php echo $row['Type_HW']; ?>">
+                            </div>
+
+                            <div class="form-group">
+                              <label>Jenis Hardware</label>
+                              <input type="text" name="Jenis_HW" class="materialize-textarea" value="<?php echo $row['Jenis_HW']; ?>">
+                            </div>
+
+                            <div class="modal-footer">
+                              <button type="submit" class="waves-effect waves-light btn light-blue darken-4">Update</button>
+                              <button type="button" class="waves-effect waves-light btn red darken-1" data-dismiss="modal">Cancel</button>
+                            </div>
+                          <?php
+                          endforeach;
+                          ?>
+                        </form>
+                      </div>
+                    </div>
+
+                     <!-- Modal Delete -->
+                     <div class="modal" id="delete<?php echo $row['ID_Jenis_HW'] ?>">
+                      <form action="<?php echo base_url('jenis_hw/delete') ?> " method="post">
+                        <?php
+                        $id = $row['ID_Jenis_HW'];
+                        $sql = $this->db->query("SELECT * FROM jenis_hardware where ID_Jenis_HW = '$id'");
+
+                        foreach ($sql->result_array() as $row) :
+                          ?>
+                          <div class="modal-content">
+                            <h5>WARNING!</h5>
+                            <p>Are you sure you want to delete this data?</p>
+                          </div>
+
+                          <div class="modal-footer">
+                            <input type="hidden" name="ID_Jenis_HW" value="<?php echo $row['ID_Jenis_HW']; ?>">
+                            <button class="waves-effect waves-light btn red darken-1">Delete</button>
+                            <button type="button" class="waves-effect waves-light btn white" data-dismiss="modal"><span class="black-text">Cancel</span></button>
+                          </div>
+                        <?php endforeach; ?>
+                    </div>
+                  <?php endforeach; ?>
                     </tbody>
                   </table>
             </div>

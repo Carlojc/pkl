@@ -4,6 +4,13 @@ class User_model extends CI_Model
 {
     private $_table = "user";
 
+    public function cek_user ($username, $password){
+        $this->db->where('username',$username);
+        $this->db->where('pass',md5($password));
+        $query=$this->db->get('user');
+        return $query->row_array();
+    }
+
     public function get_user()
     {
         $result = $this->db->get('user');
