@@ -155,37 +155,26 @@
                           <th>Kondisi App</th>
                           <th>Nama Server</th>
                           <th>Fungsi</th>
+                          <th>Aksi</th>
                       </tr>
                     </thead>
-            
                     <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>Laptop</td>
-                        <td>Ihza</td>
-                        <td>Besar</td>
-                        <td>Normal</td>
-                        <td>Kantor</td>
-                        <td>Edit Database</td>
+                    <?php
+                    $no = 1;
+                    foreach ($software as $row):
+                    ?>
+                    <tr>
+                      <td><?php echo $no++?></td>
+                      <td><?php echo $row->Nama_Aplikasi ?></td>
+                      <td><?php echo $row->Owner_App ?></td>
+                      <td><?php echo $row->Jenis_App ?></td>
+                      <td><?php echo $row->Kondisi_App ?></td>
+                      <td><?php echo $row->Nama_Server ?></td>
+                      <td><?php echo $row->Fungsi ?></td>
+                          <td><a class="buttonWakwaw" data-toggle="modal" data-target="#edit<?php echo $row->ID_SW ?>" style="padding-left: 20px;" href="#"><i class="material-icons">edit</i></a>
+                        <a class="buttonWakwaw" data-toggle="modal" data-target="#delete<?php echo $row->ID_SW ?>" href="#"><i class="material-icons">delete</i></a>
                       </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Proyektor</td>
-                        <td>Andre</td>
-                        <td>Kecil</td>
-                        <td>Normal</td>
-                        <td>Pribadi</td>
-                        <td>Presentasi lantai 5</td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>Komputer</td>
-                        <td>Asep</td>
-                        <td>Sedang</td>
-                        <td>Normal</td>
-                        <td>Kantor</td>
-                        <td>Pekerjaan kantor</td>
-                      </tr>
+                    <?php endforeach; ?>
                     </tbody>
                   </table>
             </div>
@@ -199,7 +188,7 @@
 
  
 
-
+ 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="<?=base_url('assets')?>/js/materialize.js"></script>

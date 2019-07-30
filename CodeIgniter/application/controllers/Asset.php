@@ -3,12 +3,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Asset extends CI_Controller
 {
-
 	function __construct()
 	{
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->library('session');
+		$this->load->model('Software_model');
 
 		if ($this->session->userdata('status') != "login") {
 			redirect(base_url("login"));
@@ -51,7 +51,8 @@ class Asset extends CI_Controller
 
 	public function software()
 	{
-		$this->load->view('assetSoftware');
+		$data['software'] = $this->Software_model->get_software();
+		$this->load->view('assetSoftware', $data);
 	}
 
 	public function jenis_software()
@@ -77,12 +78,6 @@ class Asset extends CI_Controller
 
 	public function addUser(){
 		$this->load->view('addUser');
-	}
-
-	public function index_software()
-	{
-		$data['software'] = $this->Software_model->get_software();
-		$this->load->view('assetSoftware', $data);
 	}
 
 	public function entity()

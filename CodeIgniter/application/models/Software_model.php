@@ -2,17 +2,15 @@
 
 class Software_model extends CI_Model
 {
-    private $_table = "software";
 
-    public function get_software () {
-    	$result = $this->db->get('software');
-    	return $result;
+    public function get_software() {
+    	$this->db->select('software.*','entity.Nama_Unit');
+        $this->db->from('software');
+        $this->db->join('entity','entity.ID_Entity = software.Owner_App');
+        $query =$this->db->get();
+    	return $query->result();
     	    }
 
-    public function get_value_entity(){
-        $query = $this->db->select('*')->from('entity')->join('software' , 'Owner_App = Nama_Entity')->get();
-    }
-            
     public function add($Nama_Aplikasi,$Owner_App,$Jenis_App,$Kondisi_App,$Status_App,$Nama_Server,$Fungsi,$Detail_Deskripsi,$Spesifikasi,$Platform,$Database,$IP_Address,$Hostname,$Memory,$Storage,$CPU,$Mesin_Server,$Lokasi,$Lokasi_DC,$Developed_By,$Region_Server,$Site,$BackUp_Real_Time,$Tgl_Implementasi,$Berita_Acara,$Harga,$Tgl_Pembelian,$SKP,$Tgl_Maintenance,$No_PKS,$PKS){
     	$data = array('Nama_Aplikasi' =>$Nama_Aplikasi ,
         'Owner_App' =>$Owner_App ,

@@ -9,11 +9,16 @@ class Software extends CI_Controller
   function index()
   {
     $data['software'] = $this->Software_model->get_software();
-    $this->load->view('software', $data);
+    print_r("hello");
+    die();
   }
   function add_new()
   {
     $this->load->view('add_software');
+  }
+
+  function data_entity(){
+    
   }
   function save(){
     $Nama_Aplikasi = $this->input->post('Nama_Aplikasi');

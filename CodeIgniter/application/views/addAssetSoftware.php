@@ -115,7 +115,7 @@
                         $sql = $this->db->query("SELECT * FROM entity");
                         foreach ($sql->result_array() as $option) :
                           ?>
-                          <option value="<?php echo $option['Nama_Unit'];?>" name="Owner_App"><?php echo $option['Nama_Unit']; ?></option>
+                          <option value="<?php echo $option['ID_Entity'];?>" name="Owner_App"><?php echo $option['Nama_Unit']; ?></option>
                         <?php endforeach; ?>
                         </select>
                         <label>Owner Software</label>
