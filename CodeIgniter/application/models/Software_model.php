@@ -2,13 +2,22 @@
 
 class Software_model extends CI_Model
 {
+    private $_table = "software";
 
     public function get_software() {
-    	$this->db->select('software.*','entity.Nama_Unit');
-        $this->db->from('software');
-        $this->db->join('entity','entity.ID_Entity = software.Owner_App');
-        $query =$this->db->get();
-    	return $query->result();
+        $software = $this->db->get($this->_table)->result();
+    	foreach ($software as $key => $value) {
+            $this->db->where('ID_Entity', $value->Owner_App);
+            $entity = $this->db->get('entity')->row();
+            $this->db->where('ID_Jenis_SW',$value->Jenis_App);
+            $jenis_software = $this->db->get('jenis_software')->row();
+            $this->db->where('ID_Kondisi',$value->Kondisi_App);
+            $kondisi_asset = $this->db->get('kondisi_asset')->row();
+            $this->db->where('ID_Status',$value->Status_App);
+            $status_asset = $this->db->get('status_asset')->row();
+            $result[$key] = (object)array_merge((array)$software[$key], (array)$entity,(array)$jenis_software,(array)$kondisi_asset,(array)$status_asset);
+        }
+        return $result;
     	    }
 
     public function add($Nama_Aplikasi,$Owner_App,$Jenis_App,$Kondisi_App,$Status_App,$Nama_Server,$Fungsi,$Detail_Deskripsi,$Spesifikasi,$Platform,$Database,$IP_Address,$Hostname,$Memory,$Storage,$CPU,$Mesin_Server,$Lokasi,$Lokasi_DC,$Developed_By,$Region_Server,$Site,$BackUp_Real_Time,$Tgl_Implementasi,$Berita_Acara,$Harga,$Tgl_Pembelian,$SKP,$Tgl_Maintenance,$No_PKS,$PKS){

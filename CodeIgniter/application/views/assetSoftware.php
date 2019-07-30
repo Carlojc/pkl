@@ -161,18 +161,18 @@
                     <tbody>
                     <?php
                     $no = 1;
-                    foreach ($software as $row):
+                    foreach ($software as $key => $value):
                     ?>
                     <tr>
                       <td><?php echo $no++?></td>
-                      <td><?php echo $row->Nama_Aplikasi ?></td>
-                      <td><?php echo $row->Owner_App ?></td>
-                      <td><?php echo $row->Jenis_App ?></td>
-                      <td><?php echo $row->Kondisi_App ?></td>
-                      <td><?php echo $row->Nama_Server ?></td>
-                      <td><?php echo $row->Fungsi ?></td>
-                          <td><a class="buttonWakwaw" data-toggle="modal" data-target="#edit<?php echo $row->ID_SW ?>" style="padding-left: 20px;" href="#"><i class="material-icons">edit</i></a>
-                        <a class="buttonWakwaw" data-toggle="modal" data-target="#delete<?php echo $row->ID_SW ?>" href="#"><i class="material-icons">delete</i></a>
+                      <td><?php echo $value->Nama_Aplikasi ?></td>
+                      <td><?php echo $value->Nama_Unit ?></td>
+                      <td><?php echo $value->Jenis ?></td>
+                      <td><?php echo $value->Kondisi_Asset ?></td>
+                      <td><?php echo $value->Nama_Server ?></td>
+                      <td><?php echo $value->Fungsi ?></td>
+                          <td><a class="buttonWakwaw" data-toggle="modal" data-target="#edit<?php echo $value->ID_SW ?>" style="padding-left: 20px;" href="#"><i class="material-icons">edit</i></a>
+                        <a class="buttonWakwaw" data-toggle="modal" data-target="#delete<?php echo $value->ID_SW ?>" href="#"><i class="material-icons">delete</i></a>
                       </tr>
                     <?php endforeach; ?>
                     </tbody>
