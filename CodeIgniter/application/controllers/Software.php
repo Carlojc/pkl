@@ -14,13 +14,12 @@ class Software extends CI_Controller
   }
   function add_new()
   {
-    $this->load->view('add_software');
+    $this->load->view('addAssetSoftware');
   }
 
-  function data_entity(){
+  function save()
+  {
     
-  }
-  function save(){
     $Nama_Aplikasi = $this->input->post('Nama_Aplikasi');
     $Owner_App = $this->input->post('Owner_App');
     $Jenis_App = $this->input->post('Jenis_App');
@@ -52,9 +51,8 @@ class Software extends CI_Controller
     $Tgl_Maintenance = $this->input->post('Tgl_Maintenance');
     $No_PKS = $this->input->post('No_PKS');
     $PKS = $this->input->post('PKS');
-    $this->Software_model->add($Nama_Aplikasi,$Owner_App,$Jenis_App,$Kondisi_App,$Status_App,$Nama_Server,$Fungsi,$Detail_Deskripsi,$Spesifikasi,$Platform,$Database,$IP_Address,$Hostname,$Memory,$Storage,$CPU,$Mesin_Server,$Lokasi_DC,$Lokasi,$Developed_By,$Region_Server,$Site,$BackUp_Real_Time,$Tgl_Implementasi,$Berita_Acara,$Harga,$Tgl_Pembelian,$SKP,$Tgl_Maintenance,$No_PKS,$PKS);
+    $this->Software_model->add($Nama_Aplikasi, $Owner_App, $Jenis_App, $Kondisi_App, $Status_App, $Nama_Server, $Fungsi, $Detail_Deskripsi, $Spesifikasi, $Platform, $Database, $IP_Address, $Hostname, $Memory, $Storage, $CPU, $Mesin_Server, $Lokasi, $Lokasi_DC, $Developed_By, $Region_Server, $Site, $BackUp_Real_Time, $Tgl_Implementasi, $Berita_Acara, $Harga, $Tgl_Pembelian, $SKP, $Tgl_Maintenance, $No_PKS, $PKS);
     redirect('asset/software');
-
   }
   function delete()
   {
@@ -63,6 +61,7 @@ class Software extends CI_Controller
     $this->Software_model->delete($ID_SW);
     redirect('asset/software');
   }
+
   function get_edit()
   {
     $ID_SW = $this->uri->segment(3);
@@ -88,6 +87,7 @@ class Software extends CI_Controller
         'Storage' => $i['Storage'],
         'CPU' => $i['CPU'],
         'Mesin_Server' => $i['Mesin_Server'],
+        'Lokasi' => $i['Lokasi'],
         'Lokasi_DC' => $i['Lokasi_DC'],
         'Developed_By' => $i['Developed_By'],
         'Region_Server' => $i['Region_Server'],
@@ -102,12 +102,14 @@ class Software extends CI_Controller
         'No_PKS' => $i['No_PKS'],
         'PKS' => $i['PKS'],
       );
-      $this->load->view('add_software',$data);
+      $this->load->view('addAssetsoftware', $data);
     }
   }
 
   function update()
   {
+    print_r($this->input->post());
+    die();
     $ID_SW = $this->input->post('ID_SW');
     $Nama_Aplikasi = $this->input->post('Nama_Aplikasi');
     $Owner_App = $this->input->post('Owner_App');
@@ -115,8 +117,10 @@ class Software extends CI_Controller
     $Kondisi_App = $this->input->post('Kondisi_App');
     $Status_App = $this->input->post('Status_App');
     $Nama_Server = $this->input->post('Nama_Server');
+    $Fungsi = $this->input->post('Fungsi');
     $Detail_Deskripsi = $this->input->post('Detail_Deskripsi');
     $Spesifikasi = $this->input->post('Spesifikasi');
+    $Platform = $this->input->post('Platform');
     $IP_Address = $this->input->post('IP_Address');
     $Database = $this->input->post('Database');
     $Hostname = $this->input->post('Hostname');
@@ -124,7 +128,9 @@ class Software extends CI_Controller
     $Storage = $this->input->post('Storage');
     $CPU = $this->input->post('CPU');
     $Mesin_Server = $this->input->post('Mesin_Server');
+    $Lokasi = $this->input->post('Lokasi');
     $Lokasi_DC = $this->input->post('Lokasi_DC');
+    $Developed_By = $this->input->post('Developed_By');
     $Region_Server = $this->input->post('Region_Server');
     $Site = $this->input->post('Site');
     $BackUp_Real_Time = $this->input->post('BackUp_Real_Time');
@@ -134,9 +140,9 @@ class Software extends CI_Controller
     $Tgl_Pembelian = $this->input->post('Tgl_Pembelian');
     $SKP = $this->input->post('SKP');
     $Tgl_Maintenance = $this->input->post('Tgl_Maintenance');
-    $No_PKSp = $this->input->post('No_PKS');
+    $No_PKS = $this->input->post('No_PKS');
     $PKS = $this->input->post('PKS');
-    $this->Software_model->update($ID_SW,$Nama_Aplikasi,$Owner_App,$Jenis_App,$Kondisi_App,$Status_App,$Nama_Server,$Fungsi,$Detail_Deskripsi,$Spesifikasi,$Platform,$Database,$IP_Address,$Hostname,$Memory,$Storage,$CPU,$Mesin_Server,$Lokasi_DC,$Developed_By,$Region_Server,$Site,$BackUp_Real_Time,$Tgl_Implementasi,$Berita_Acara,$Harga,$Tgl_Pembelian,$SKP,$Tgl_Maintenance,$No_PKS,$PKS);
+    $this->Software_model->update($ID_SW, $Nama_Aplikasi, $Owner_App, $Jenis_App, $Kondisi_App, $Status_App, $Nama_Server, $Fungsi, $Detail_Deskripsi, $Spesifikasi, $Platform, $Database, $IP_Address, $Hostname, $Memory, $Storage, $CPU, $Mesin_Server,$Lokasi, $Lokasi_DC, $Developed_By, $Region_Server, $Site, $BackUp_Real_Time, $Tgl_Implementasi, $Berita_Acara, $Harga, $Tgl_Pembelian, $SKP, $Tgl_Maintenance, $No_PKS, $PKS);
     redirect('asset/software');
   }
 }
