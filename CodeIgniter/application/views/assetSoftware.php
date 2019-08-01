@@ -159,16 +159,66 @@
                         <h5><?php echo $value->Nama_Aplikasi ?></h5>
                         <br>
                         <div class="row">
-                          <p> <?php echo $value->Jenis ?></p>
-                          <p> <?php echo $value->Kondisi_Asset ?></p>
-                          <p> <?php echo $value->Nama_Server ?></p>
+                          <div class="col s6">
+                            <label>Owner Aplikasi</label>
+                            <p> <?php echo $value->Nama_Unit ?></p>
+                            <label>Jenis Aplikasi</label>
+                            <p><?php echo $value->Jenis ?></p>
+                            <label>Vendor</label>
+                            <p> <?php echo $value->Nama_Vendor ?></p>
+                            <label>Kondisi Aplikasi</label>
+                            <p> <?php echo $value->Kondisi_Asset ?></p>
+                            <label>Status Aplikasi</label>
+                            <p> <?php echo $value->Status ?></p>
+                            <label>Fungsi</label>
+                            <p> <?php echo $value->Fungsi ?></p>
+                            <label>Harga</label>
+                            <p> <?php echo $value->Harga ?></p>
+                            <label>Deskripsi</label>
+                            <p> <?php echo $value->Detail_Deskripsi ?></p>
+                            <label>Spesifikasi</label>
+                            <p> <?php echo $value->Spesifikasi ?></p>
+                            <label>Lokasi</label>
+                            <p> <?php echo $value->Nama_Lokasi ?></p>
+                            <label>Lokasi Data Center</label>
+                            <p> <?php echo $value->Nama_Lokasi_DC ?></p>
+                          </div>
+                          <div class="col s6">
+                            <label>Nama Server</label>
+                            <p> <?php echo $value->Nama_Server ?></p>
+                            <label>Platform</label>
+                            <p> <?php echo $value->Platform ?></p>
+                            <label>Database</label>
+                            <p> <?php echo $value->Database ?></p>
+                            <label>IP Address</label>
+                            <p> <?php echo $value->IP_Address ?></p>
+                            <label>Hostname</label>
+                            <p> <?php echo $value->Hostname ?></p>
+                            <label>Memory</label>
+                            <p> <?php echo $value->Memory ?></p>
+                            <label>Storage</label>
+                            <p> <?php echo $value->Storage ?></p>
+                            <label>CPU</label>
+                            <p> <?php echo $value->CPU ?></p>
+                            <label>Mesin Server</label>
+                            <p> <?php echo $value->Mesin_Server ?></p>
+                            <label>Site</label>
+                            <p> <?php echo $value->Site ?></p>
+                            <label>Back Up Realtime</label>
+                            <p> <?php echo $value->BackUp_Real_Time ?></p>
+                            <label>Waktu Pembelian/Sewa</label>
+                            <p> <?php echo $value->Tgl_Pembelian ?></p>
+                          </div>
                         </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="modal-close waves-effect btn red darken-1">Close</button>
                       </div>
                     </div>
 
                     <!-- Modal edit -->
                     <div class="modal modal-fixed-footer" id="edit<?php echo $value->ID_SW ?>">
-                      <form action="<?php echo site_url('Software/update') ?>" method="post">
+                      <form id="edit" action="<?php echo site_url('Software/update') ?>" method="post">
                         <div class="modal-content">
                           <div class="col s12">
                             <h5>Update Software</h5>
@@ -184,19 +234,19 @@
                                 <label>Nama Software</label>
                               </div>
                               <div class="input-field col s12">
-                                <select name="Owner_App" id="Owner_App">
-                                  <option value="<?php echo $value->ID_Entity ?>" disabled selected name="Owner_App"><?php echo $value->Nama_Unit ?></option>
+                                <select name="Owner_App" id="Owner_App" form="edit">
+                                  <option value="<?php echo $value->ID_Entity ?>" disabled selected><?php echo $value->Nama_Unit ?></option>
                                   <?php
                                   $sql = $this->db->query("SELECT * FROM entity");
                                   foreach ($sql->result_array() as $option) :
                                     ?>
-                                    <option value="<?php echo $option['ID_Entity']; ?>" name="Owner_App"><?php echo $option['Nama_Unit']; ?></option>
+                                    <option value="<?php echo $option['ID_Entity']; ?>"><?php echo $option['Nama_Unit']; ?></option>
                                   <?php endforeach; ?>
                                 </select>
                                 <label>Owner Software</label>
                               </div>
                               <div class="input-field col s12">
-                                <select name="Jenis_App">
+                                <select name="Jenis_App" form="edit">
                                   <option value="" disabled selected><?php echo $value->Jenis ?></option>
                                   <?php
                                   $sql = $this->db->query("SELECT * FROM jenis_software");
@@ -209,7 +259,7 @@
                               </div>
 
                               <div class="input-field col s12">
-                                <select name="Developed_By" id="Developed_By">
+                                <select name="Developed_By" id="Developed_By" form="edit">
                                   <option value="" disabled selected><?php echo $value->Nama_Vendor ?></option>
                                   <?php
                                   $sql = $this->db->query("SELECT * FROM vendor");
@@ -222,7 +272,7 @@
                               </div>
 
                               <div class="input-field col s12">
-                                <select name="Kondisi_App" id="Kondisi_App">
+                                <select name="Kondisi_App" id="Kondisi_App" form="edit">
                                   <option value="" disabled selected><?php echo $value->Kondisi_Asset ?></option>
                                   <?php
                                   $sql = $this->db->query("SELECT * FROM kondisi_asset");
@@ -238,7 +288,7 @@
                                 <label>Fungsi</label>
                               </div>
                               <div class="input-field col s12">
-                                <select name="Status_App" id="Status_App">
+                                <select name="Status_App" id="Status_App" form="edit">
                                   <option value="" disabled selected><?php echo $value->Status ?></option>
                                   <?php
                                   $sql = $this->db->query("SELECT * FROM status_asset");
@@ -262,7 +312,7 @@
                                 <label>Spesifikasi</label>
                               </div>
                               <div class="input-field col s12">
-                                <select name="Lokasi" id="Lokasi">
+                                <select name="Lokasi" id="Lokasi" form="edit">
                                   <option value="" disabled selected><?php echo $value->Nama_Lokasi ?></option>
                                   <?php
                                   $sql = $this->db->query("SELECT * FROM lokasi");
@@ -274,7 +324,7 @@
                                 <label>Lokasi</label>
                               </div>
                               <div class="input-field col s12">
-                                <select name="Lokasi_DC" id="Lokasi_DC">
+                                <select name="Lokasi_DC" id="Lokasi_DC" form="edit">
                                   <option value="" disabled selected><?php echo $value->Nama_Lokasi_DC ?></option>
                                   <?php
                                   $sql = $this->db->query("SELECT * FROM lokasi_data_center");
@@ -295,7 +345,7 @@
                                 <label>Nama Server</label>
                               </div>
                               <div class="input-field col s12">
-                                <select name="Region_Server" id="Region_Server">
+                                <select name="Region_Server" id="Region_Server" form="edit">
                                   <option value="" disabled selected><?php echo $value->GAS ?></option>
                                   <?php
                                   $sql = $this->db->query("SELECT * FROM region_server");
@@ -339,7 +389,7 @@
                                 <label>Mesin Server</label>
                               </div>
                               <div class="input-field col s12">
-                                <select name="Site">
+                                <select name="Site" form="edit">
                                   <option value="" disabled selected>Choose your option</option>
                                   <option value="google.com">google.com</option>
                                   <option value="youtube.com">youtube.com</option>
@@ -348,7 +398,7 @@
                                 <label>Site</label>
                               </div>
                               <div class="input-field col s12">
-                                <select name="BackUp_Real_Time">
+                                <select name="BackUp_Real_Time" form="edit">
                                   <option value="" disabled selected>Choose your option</option>
                                   <option value="21/07/2019">21/07/2019</option>
                                   <option value="30/01/2016">30/01/2016</option>
@@ -356,7 +406,7 @@
                                 </select>
                                 <label>Backup Realtime</label>
                               </div>
-                              <div class="input-field col s12">
+                              <div class="input-field col s12" form="edit">
                                 <label for="birthdate">Waktu Pembelian/Sewa</label>
                                 <input placeholder="" name="Tgl_Pembelian" type="text" class="datepicker">
                               </div>
@@ -376,7 +426,7 @@
                         <div class="modal-content">
                           <h5>WARNING!</h5>
                           <p>Are you sure you want to delete this data?</p>
-                          <input type="text" name="ID_SW" value="<?php echo $value->ID_SW ?>">
+                          <input type="hidden" name="ID_SW" value="<?php echo $value->ID_SW ?>">
                         </div>
                         <div class="modal-footer">
                           <button class="waves-effect waves-light btn red darken-1">Delete</button>
