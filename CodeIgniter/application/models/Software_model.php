@@ -22,7 +22,9 @@ class Software_model extends CI_Model
             $vendor = $this->db->get('vendor')->row();
             $this->db->where('ID_Region_Server', $value->Region_Server);
             $region_server = $this->db->get('region_server')->row();
-            $result[$key] = (object) array_merge((array) $software[$key], (array) $entity, (array) $jenis_software, (array) $kondisi_asset, (array) $status_asset, (array) $lokasi_data_center, (array) $vendor, (array) $region_server);
+            $this->db->where('ID_Lokasi', $value->Lokasi);
+            $lokasi = $this->db->get('lokasi')->row();
+            $result[$key] = (object) array_merge((array) $software[$key], (array) $entity, (array) $jenis_software, (array) $kondisi_asset, (array) $status_asset, (array) $lokasi_data_center, (array) $vendor, (array) $region_server,(array)$lokasi);
         }
         return $result;
     }

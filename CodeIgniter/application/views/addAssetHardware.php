@@ -96,99 +96,111 @@
           <div class="card z-depth-3">
             <div class="card-content">
                 <div class="row">
-                  <form>
+                  <form action="<?php echo site_url('Hardware/save') ?>" method="post">
                     <div class="col s6">
                     <div class="row">
                       <div class="input-field col s12">
-                        <input placeholder="Masukan Nama Hardware" id="first_name" type="text" class="validate">
+                        <input placeholder="Masukan Nama Hardware" name="Nama_HW" id="first_name" type="text" class="validate">
                         <label for="first_name">Nama Hardware</label>
                       </div>
                       <div class="input-field col s12">
-                          <select>
-                              <option value="" disabled selected>Owner Hardware</option>
-                              <option value="1">Option 1</option>
-                              <option value="2">Option 2</option>
-                              <option value="3">Option 3</option>
-                          </select>
-                          <label>Owner Hardware</label>
+                        <select name="Owner_HW" id="Owner_HW">
+                        <option value="" disabled selected>Choose your option</option>
+                        <?php
+                        $sql = $this->db->query("SELECT * FROM entity");
+                        foreach ($sql->result_array() as $option) :
+                          ?>
+                          <option value="<?php echo $option['ID_Entity'];?>" name="Owner_HW"><?php echo $option['Nama_Unit']; ?></option>
+                        <?php endforeach; ?>
+                        </select>
+                        <label>Owner Hardware</label>
                       </div>
                       <div class="input-field col s12">
-                          <select>
-                              <option value="" disabled selected>Choose your option</option>
-                              <option value="1">Option 1</option>
-                              <option value="2">Option 2</option>
-                              <option value="3">Option 3</option>
-                          </select>
-                          <label>Jenis Hardware</label>
+                        <select name="Jenis_HW" id="Jenis_HW">
+                          <option value="" disabled selected>Choose your option</option>
+                        <?php
+                        $sql = $this->db->query("SELECT * FROM jenis_hardware");
+                        foreach ($sql->result_array() as $option) :
+                          ?>
+                          <option value="<?php echo $option['ID_Jenis_HW']; ?>" name="Jenis_HW"><?php echo $option['Jenis_HW']; ?></option>
+                        <?php endforeach; ?>
+                        </select>
+                        <label>Jenis Hardware</label>
                       </div>
                       <div class="input-field col s12">
-                          <select>
-                              <option value="" disabled selected>Choose your option</option>
-                              <option value="1">Option 1</option>
-                              <option value="2">Option 2</option>
-                              <option value="3">Option 3</option>
-                          </select>
-                          <label>Developed By</label>
+                        <select name="Kondisi_HW" id="Kondisi_HW">
+                          <option value="" disabled selected>Choose your option</option>
+                        <?php
+                        $sql = $this->db->query("SELECT * FROM kondisi_asset");
+                        foreach ($sql->result_array() as $option) :
+                          ?>
+                          <option value="<?php echo $option['ID_Kondisi']; ?>" name="Kondisi_HW"><?php echo $option['Kondisi_Asset']; ?></option>
+                        <?php endforeach; ?>
+                        </select>
+                        <label>Kondisi Hardware</label>
                       </div>
                       <div class="input-field col s12">
-                          <select>
-                              <option value="" disabled selected>Choose your option</option>
-                              <option value="1">Option 1</option>
-                              <option value="2">Option 2</option>
-                              <option value="3">Option 3</option>
-                          </select>
-                          <label>Kondisi Hardware</label>
-                      </div>
-                      <div class="input-field col s12">
-                          <input id="last_name" placeholder="Masukan fungsi" type="text" class="validate">
+                          <input id="last_name" placeholder="Masukan fungsi" name="Fungsi" type="text" class="validate">
                           <label for="last_name">Fungsi</label>
                       </div>
                       <div class="input-field col s12">
-                          <select>
-                              <option value="" disabled selected>Choose your option</option>
-                              <option value="1">Option 1</option>
-                              <option value="2">Option 2</option>
-                              <option value="3">Option 3</option>
-                          </select>
-                          <label>Status Kepemilikan</label>
+                        <select name="Status_HW" id="Status_HW">
+                          <option value="" disabled selected>Choose your option</option>
+                        <?php
+                        $sql = $this->db->query("SELECT * FROM status_asset");
+                        foreach ($sql->result_array() as $option) :
+                          ?>
+                          <option value="<?php echo $option['ID_Status']; ?>" name="Status_HW" ><?php echo $option['Status']; ?></option>
+                        <?php endforeach; ?>
+                        </select>
+                        <label>Status Hardware</label>
                       </div>
                       <div class="input-field col s12">
-                          <input id="last_name" placeholder="Rp. " type="number" class="validate">
-                          <label for="last_name">Harga</label>
+                        <input id="last_name" placeholder="Rp. 0101 " name="Harga" type="number" class="validate">
+                        <label for="last_name">Harga</label>
                       </div>
                     </div>
                     </div>
                     <div class="col s6">
                       <div class="row">
+                        
                         <div class="input-field col s12">
-                          <input placeholder="Masukan Nama Server" id="first_name" type="text" class="validate">
-                          <label for="first_name">Nama Server</label>
-                        </div>
-                         <form>
-                        <div class="input-field col s12">
-                          <textarea id="textarea1" placeholder="" class="materialize-textarea"></textarea>
+                          <textarea id="textarea1" placeholder="" name="Detail_Deskripsi" class="materialize-textarea"></textarea>
                           <label for="textarea1">Deskripsi Hardware</label>
                       </div>
-                        </form>
-                        <form>
+                     
+                      
                           <div class="input-field col s12">
-                            <textarea id="textarea1" placeholder="" class="materialize-textarea"></textarea>
+                            <textarea id="textarea1" placeholder="" name="Spesifikasi" class="materialize-textarea"></textarea>
                             <label for="textarea1">Spesifikasi Hardware</label>
                         </div>
-                        </form>
                         <div class="input-field col s12">
-                          <select>
-                            <option value="" disabled selected>Choose your option</option>
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
-                          </select>
-                          <label>Lokasi</label>
-                        </div>
-                      
+                        <select name="Penyedia_HW" id="Penyedia_HW">
+                          <option value="" disabled selected>Choose your option</option>
+                        <?php
+                        $sql = $this->db->query("SELECT * FROM vendor");
+                        foreach ($sql->result_array() as $option) :
+                          ?>
+                          <option value="<?php echo $option['ID_Vendor']; ?>" name="Penyedia_HW"><?php echo $option['Nama_Vendor']; ?></option>
+                        <?php endforeach; ?>
+                        </select>
+                        <label>Penyedia Hardware</label>
+                      </div>
+                        <div class="input-field col s12">
+                        <select name="Lokasi_HW" id="Lokasi_HW">
+                          <option value="" disabled selected>Choose your option</option>
+                        <?php
+                        $sql = $this->db->query("SELECT * FROM lokasi");
+                        foreach ($sql->result_array() as $option) :
+                          ?>
+                          <option value="<?php echo $option['ID_Lokasi']; ?>" name="Lokasi_HW"><?php echo $option['Nama_Lokasi']; ?></option>
+                        <?php endforeach; ?>
+                        </select>
+                        <label>Lokasi</label>
+                      </div>
                         <div class="input-field col s12">
                             <label for="birthdate">Waktu Pembelian/Sewa</label>
-                            <input placeholder="" type="text" class="datepicker">
+                            <input placeholder="" name="Tgl_Pembelian" type="text" class="datepicker">
                           </div>
                         </div>
                     </div>

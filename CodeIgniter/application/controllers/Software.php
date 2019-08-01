@@ -108,8 +108,6 @@ class Software extends CI_Controller
 
   function update()
   {
-    print_r($this->input->post());
-    die();
     $ID_SW = $this->input->post('ID_SW');
     $Nama_Aplikasi = $this->input->post('Nama_Aplikasi');
     $Owner_App = $this->input->post('Owner_App');

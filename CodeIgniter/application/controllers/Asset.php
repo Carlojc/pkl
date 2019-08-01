@@ -9,7 +9,7 @@ class Asset extends CI_Controller
 		$this->load->helper('url');
 		$this->load->library('session');
 		$this->load->model('Software_model');
-
+		$this->load->model('Hardware_model');
 		if ($this->session->userdata('status') != "login") {
 			redirect(base_url("login"));
 		}
@@ -22,7 +22,8 @@ class Asset extends CI_Controller
 
 	public function hardware()
 	{
-		$this->load->view('assetHardware');
+		$data['hardware'] = $this->Hardware_model->get_hardware();
+		$this->load->view('assetHardware',$data);
 	}
 
 	public function jenis_hardware()
